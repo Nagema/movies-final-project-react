@@ -1,0 +1,25 @@
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 1em;
+  text-align: center;
+}
+
+.logo-wrapper {
+  font-size: 20px;
+  color: rgb(83, 80, 80);
+}
+
+.navbar-container a {
+  padding: 1em;
+  color: rgb(83, 80, 80);
+}
+
+.app-title {
+  font-size: 16px;
+  padding: 10px;
+}
+
+.menu-wrapper {
+  line-height: 1.5;
+}

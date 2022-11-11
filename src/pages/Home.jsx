@@ -4,7 +4,6 @@ import MovieList from "../components/movies/MovieList";
 const Home = () => {
   return (
     <div>
-      hola
       <MovieList />
     </div>
   );
