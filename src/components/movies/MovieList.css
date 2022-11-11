@@ -1,0 +1,22 @@
+
+.movies-container{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.movie-card {
+    text-align: center;
+    width: 300px;
+}
+
+
+img{
+    width: 200px;
+}
+
+.batman {
+    width: 200px;
+    height: 297px;
+    object-fit: cover;
+}
