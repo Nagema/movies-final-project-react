@@ -17,7 +17,9 @@ const MovieList = () => {
   return (
     <div className="movies-container">
       {isLoading ? (
-        <span className="loader"></span>
+        <div className="loader-wrapper">
+          <span className="loader"></span>
+        </div>
       ) : (
         movies.map((movie) => {
           return (

@@ -3,6 +3,7 @@
   justify-content: center;
   flex-wrap: wrap;
   gap: 20px;
+  margin-top: 10%;
 }
 
 .movie-card {
@@ -18,6 +19,10 @@ img {
   width: 200px;
   height: 297px;
   object-fit: cover;
+}
+
+.loader-wrapper {
+  margin-top: 40%;
 }
 .loader {
   width: 48px;
