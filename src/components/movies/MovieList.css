@@ -3,12 +3,17 @@
   justify-content: center;
   flex-wrap: wrap;
   gap: 20px;
-  margin-top: 10%;
+  margin: 10% 0;
 }
 
 .movie-card {
   text-align: center;
   width: 300px;
+}
+
+.movie-card h2 {
+  padding: 10px;
+  text-transform: capitalize;
 }
 
 img {

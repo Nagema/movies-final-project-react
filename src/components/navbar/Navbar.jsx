@@ -6,10 +6,13 @@ import "./Navbar.css";
 const Navbar = () => {
   return (
     <nav className="navbar-container">
-      <div className="logo-wrapper">
-        <FontAwesomeIcon icon={faFilm} />
-        <span className="app-title">The cinephile </span>
-      </div>
+      <NavLink activeclassname={"active"} to="/">
+        <div className="logo-wrapper">
+          <FontAwesomeIcon icon={faFilm} />
+          <span className="app-title">The cinephile </span>
+        </div>
+      </NavLink>
+
       <div className="menu-wrapper">
         <NavLink activeclassname={"active"} to="/">
           Home
