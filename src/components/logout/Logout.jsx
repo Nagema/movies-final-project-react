@@ -5,8 +5,8 @@ import { logoutUser } from '../../redux/auth/auth.actions';
 
 
 const Logout = () => {
-  const navigate = useNavigate;
-  const dispatch = useDispatch;
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
   const logOutButton = () => {
     dispatch(logoutUser(navigate));
   }

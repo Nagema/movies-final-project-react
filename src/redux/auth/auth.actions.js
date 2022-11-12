@@ -14,7 +14,7 @@ export const loginUser = (formdata, navigate) => async(dispatch) =>{
 }
 
 export const logoutUser = (navigate) => async(dispatch) =>{
-  dispatch({type: 'logout_user_start'});
+  await dispatch({type: 'logout_user_start'});
   try {
       dispatch({type: 'logout_user_ok'});
       localStorage.removeItem('token'); //esto remueve la propiedad token de localStorage
