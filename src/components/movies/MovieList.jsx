@@ -2,17 +2,16 @@ import React, { useEffect } from "react";
 import "./MovieList.css";
 import { useDispatch, useSelector } from "react-redux";
 import { getMovies } from "../../redux/movies/movies.functions";
+import { useNavigate } from "react-router-dom";
 
 const MovieList = () => {
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const { movies, isLoading, error } = useSelector((state) => state.movies);
 
   useEffect(() => {
     dispatch(getMovies());
   }, []);
-  const gotoDetail = () => {
-    console.log("HOLA");
-  };
 
   return (
     <div className="movies-container">
@@ -23,7 +22,7 @@ const MovieList = () => {
       ) : (
         movies.map((movie) => {
           return (
-            <div onClick={gotoDetail} className="movie-card" key={movie._id}>
+            <div onClick={() => navigate(`/movies/${movie._id}`)} className="movie-card" key={movie._id}>
               <h2>{movie.title}</h2>
               <img
                 className={movie.title}
