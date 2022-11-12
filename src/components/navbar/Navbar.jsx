@@ -3,7 +3,12 @@ import { NavLink } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFilm } from "@fortawesome/free-solid-svg-icons";
 import "./Navbar.css";
+import Logout from "../logout/Logout";
+import { useSelector } from "react-redux";
+
 const Navbar = () => {
+  const { user, token } = useSelector(state => state.auth)
+  console.log('user -->',user);
   return (
     <nav className="navbar-container">
       <NavLink activeclassname={"active"} to="/">
@@ -17,12 +22,19 @@ const Navbar = () => {
         <NavLink activeclassname={"active"} to="/">
           Home
         </NavLink>
+        {user &&
+        <>
         <NavLink activeclassname={"active"} to="/favorites">
           Favorites
         </NavLink>
+        <Logout/>
+        </>
+        }
+        {!user &&
         <NavLink activeclassname={"active"} to="/login">
           Login
         </NavLink>
+        }        
       </div>
     </nav>
   );

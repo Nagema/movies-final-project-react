@@ -1,6 +1,7 @@
 import React from "react";
+import './Login.css'
 import {useForm} from 'react-hook-form';
-import { loginUser } from "../redux/auth/auth.actions";
+import { loginUser } from "../../redux/auth/auth.actions";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
@@ -14,9 +15,10 @@ const Login = () => {
   } 
   return (
     <div>
-      <form onSubmit={handleSubmit(send)}>
+      <form onSubmit={handleSubmit(send)} className='login'>
+        <h2>Login</h2>
         <label>Email
-          <input type='email' {...register('email', {
+          <input type='email' name='email' {...register('email', {
              required: "Introduce un email, por favor",
             minLength: {
                 value: 2,
@@ -29,13 +31,14 @@ const Login = () => {
           })}/>
         </label>
         <label>Password
-          <input type='password' {...register('password', {
+          <input type='password' name='password' {...register('password', {
             required: "El password tiene que existir",
             // pattern: /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,12}$/,
           })}/>
         </label>
         <button>Login</button>
       </form>
+
     </div>
   )
 };

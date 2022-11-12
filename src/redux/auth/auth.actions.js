@@ -40,7 +40,7 @@ export const newUser = (formdata, navigate) => async(dispatch) =>{
 export const checkSession = (token, navigate) => async(dispatch) =>{
   dispatch({type: 'checkSession_start'});
   try {
-      const resultado = await API.post('users/checksession');
+      const resultado = await API.post('/checksession');
       dispatch({type: 'checkSession_ok', payload: {user: resultado.data, token:token}});
       localStorage.setItem('token', token);
       console.log(resultado);
