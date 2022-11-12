@@ -3,16 +3,16 @@ import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom'
 import { logoutUser } from '../../redux/auth/auth.actions';
 
+
 const Logout = () => {
   const navigate = useNavigate;
   const dispatch = useDispatch;
-  const logOut = () => {
-    dispatch(logoutUser(navigate))
-    console.log(logoutUser);
+  const logOutButton = () => {
+    dispatch(logoutUser(navigate));
   }
 
   return (
-    <button onClick={logOut}>Logout</button>
+    <button onClick={logOutButton}>Logout</button>
   )
 }
 

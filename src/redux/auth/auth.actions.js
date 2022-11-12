@@ -7,7 +7,7 @@ export const loginUser = (formdata, navigate) => async(dispatch) =>{
       console.log(result)
       dispatch({ type: "login_user_ok", payload: result.data });
       localStorage.setItem('token', result.data.token);
-      navigate('');
+      dispatch(checkSession(result.data.token, navigate));
   } catch (error) {
       dispatch({ type: "login_user_error", payload: error.message });
   }
@@ -40,15 +40,15 @@ export const newUser = (formdata, navigate) => async(dispatch) =>{
 export const checkSession = (token, navigate) => async(dispatch) =>{
   dispatch({type: 'checkSession_start'});
   try {
-      const resultado = await API.post('/checksession');
+      const resultado = await API.post('users/checksession');
       dispatch({type: 'checkSession_ok', payload: {user: resultado.data, token:token}});
       localStorage.setItem('token', token);
       console.log(resultado);
       navigate('/');
   }catch(error){
       dispatch({type: 'checkSession_error'});
-      localStorage.removeItem('token'); //esto remueve la propiedad token de localStorage
-      localStorage.clear(); /// Esto remueve todo el localstorage
+      localStorage.removeItem('token');
+      localStorage.clear(); 
       navigate('/login');
   }
 }
