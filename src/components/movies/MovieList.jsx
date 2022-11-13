@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
+// import axios from "axios";
 import "./MovieList.css";
 import { useDispatch, useSelector } from "react-redux";
 import { getMovies } from "../../redux/movies/movies.functions";
@@ -15,13 +15,9 @@ const MovieList = () => {
     dispatch(getMovies());
   }, []);
 
-  const [fav, setFav] = useState(null);
-  const favoriteToggle = (favValue) => {
-    setFav(!favValue);
-    // console.log(fav, !favValue);
-  };
+ 
 
-  const handleSubmit = (movie) => {
+ /*  const handleSubmit = (movie) => {
     // console.log(movie.info);
 
     favoriteToggle(movie.info[0].favorites);
@@ -36,9 +32,9 @@ const MovieList = () => {
       .then((res) => {
         setData(res.data);
       });
-  }; //fix pending
+  }; //fix pending */
 
-  const favClassName = `${fav ? "favorite-icon-active" : "favorite-icon"}`;
+ 
 
   return (
     <div className="movies-container">
@@ -52,8 +48,6 @@ const MovieList = () => {
             <MovieCard
               key={movie._id}
               movie={movie}
-              favClassName={favClassName}
-              handleSubmit={handleSubmit}
             />
           );
         })
