@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import axios from "axios";
 import "./MovieList.css";
 import { useDispatch, useSelector } from "react-redux";
 import { getMovies } from "../../redux/movies/movies.functions";
@@ -11,16 +12,34 @@ const MovieList = () => {
   const dispatch = useDispatch();
   const { movies, isLoading, error } = useSelector((state) => state.movies);
 
+  const [data, setData] = useState(null);
+
   useEffect(() => {
     dispatch(getMovies());
   }, []);
 
-  const [fav, setFav] = useState();
-
-  const favoriteToggle = (item) => {
-    setFav(!fav);
-    console.log(fav);
+  const [fav, setFav] = useState(null);
+  const favoriteToggle = (favValue) => {
+    setFav(!favValue);
+    // console.log(fav, !favValue);
   };
+
+  const handleSubmit = (movie) => {
+    // console.log(movie.info);
+
+    favoriteToggle(movie.info[0].favorites);
+
+    const data = {
+      info: [{ favorites: fav }],
+    };
+    // console.log(data);
+    // console.log(movie);
+    axios
+      .put(`https://movies-api-ll3t.vercel.app/movies/${movie._id}`, data)
+      .then((res) => {
+        setData(res.data);
+      });
+  }; //fix pending
 
   const favClassName = `${fav ? "favorite-icon-active" : "favorite-icon"}`;
 
@@ -43,7 +62,10 @@ const MovieList = () => {
                   alt={movie.title}
                 />
               </div>
-              <button className={favClassName} onClick={() => favoriteToggle()}>
+              <button
+                className={favClassName}
+                onClick={() => handleSubmit(movie)}
+              >
                 <FontAwesomeIcon icon={faHeart} />
               </button>
             </div>
