@@ -2,8 +2,6 @@
   display: flex;
   justify-content: space-between;
   text-align: center;
-  max-width: 85%;
-  margin: auto;
 }
 
 .logo-wrapper {
@@ -25,9 +23,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  
-  /* background-color: orangered; */
-  /* line-height: 3.5; */
 }
 
 .userName-wrapper {
@@ -36,4 +31,9 @@
   justify-content: flex-end;
 }
 
-
+@media (min-width: 600px) {
+  .navbar-container {
+    max-width: 85%;
+    margin: auto;
+  }
+}
