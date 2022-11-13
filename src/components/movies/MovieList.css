@@ -6,20 +6,6 @@
   margin: 10% 0;
 }
 
-.movie-card {
-  text-align: center;
-  width: 300px;
-}
-
-.movie-card h2 {
-  padding: 10px;
-  text-transform: capitalize;
-}
-
-img {
-  width: 200px;
-}
-
 .loader-wrapper {
   margin-top: 40%;
 }
@@ -48,16 +34,6 @@ img {
   box-shadow: 25px 2px, 10px 22px;
 }
 
-.favorite-icon {
-  color: rgb(97, 96, 96);
-  background: none;
-  border: none;
-}
-.favorite-icon-active {
-  background: none;
-  border: none;
-  color: red;
-}
 @keyframes rotation {
   0% {
     transform: rotate(0deg);

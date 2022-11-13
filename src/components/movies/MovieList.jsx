@@ -3,12 +3,9 @@ import axios from "axios";
 import "./MovieList.css";
 import { useDispatch, useSelector } from "react-redux";
 import { getMovies } from "../../redux/movies/movies.functions";
-import { useNavigate } from "react-router-dom";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHeart } from "@fortawesome/free-solid-svg-icons";
+import MovieCard from "../movie-card/MovieCard";
 
 const MovieList = () => {
-  const navigate = useNavigate();
   const dispatch = useDispatch();
   const { movies, isLoading, error } = useSelector((state) => state.movies);
 
@@ -52,23 +49,12 @@ const MovieList = () => {
       ) : (
         movies.map((movie) => {
           return (
-            <div className="movie-card" key={movie._id}>
-              <div onClick={() => navigate(`/movies/${movie._id}`)}>
-                <h2>{movie.title}</h2>
-                <img
-                  className={movie.title}
-                  referrerPolicy="no-referrer"
-                  src={movie.img}
-                  alt={movie.title}
-                />
-              </div>
-              <button
-                className={favClassName}
-                onClick={() => handleSubmit(movie)}
-              >
-                <FontAwesomeIcon icon={faHeart} />
-              </button>
-            </div>
+            <MovieCard
+              key={movie._id}
+              movie={movie}
+              favClassName={favClassName}
+              handleSubmit={handleSubmit}
+            />
           );
         })
       )}

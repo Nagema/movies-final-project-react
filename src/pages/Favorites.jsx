@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
+
 import axios from "axios";
+import MovieCard from "../components/movie-card/MovieCard";
 
 const Favorites = () => {
   const { user } = useSelector((state) => state.auth);
@@ -20,12 +22,7 @@ const Favorites = () => {
     <div>
       {favList.map((movie) => {
         console.log();
-        return (
-          <div key={movie._id}>
-            <p>{movie.title}</p>
-            <img src={movie.img} alt={movie.title} />
-          </div>
-        );
+        return <MovieCard key={movie._id} movie={movie} />;
       })}
     </div>
   );
