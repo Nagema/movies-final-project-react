@@ -10,11 +10,11 @@ const MovieCard = (movie, handleSubmit) => {
   const [fav, setFav] = useState(false);
   const favoriteToggle = (favValue) => {
     setFav(!favValue);
-    console.log(fav);
+    /* console.log(fav); */
   };
 
   const favClassName = `${fav ? "favorite-icon-active" : "favorite-icon"}`;
-  console.log(fav);
+  /* console.log(fav); */
 
   return (
     <div className="movie-card">
