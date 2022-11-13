@@ -17,9 +17,12 @@ const MovieList = () => {
 
   const [fav, setFav] = useState();
 
-  const favoriteToggle = () => {
+  const favoriteToggle = (item) => {
     setFav(!fav);
+    console.log(fav);
   };
+
+  const favClassName = `${fav ? "favorite-icon-active" : "favorite-icon"}`;
 
   return (
     <div className="movies-container">
@@ -40,7 +43,7 @@ const MovieList = () => {
                   alt={movie.title}
                 />
               </div>
-              <button className="favorite-icon" onClick={favoriteToggle}>
+              <button className={favClassName} onClick={() => favoriteToggle()}>
                 <FontAwesomeIcon icon={faHeart} />
               </button>
             </div>

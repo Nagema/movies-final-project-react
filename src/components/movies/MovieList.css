@@ -20,12 +20,6 @@ img {
   width: 200px;
 }
 
-.batman {
-  width: 200px;
-  height: 297px;
-  object-fit: cover;
-}
-
 .loader-wrapper {
   margin-top: 40%;
 }
@@ -60,6 +54,8 @@ img {
   border: none;
 }
 .favorite-icon-active {
+  background: none;
+  border: none;
   color: red;
 }
 @keyframes rotation {
