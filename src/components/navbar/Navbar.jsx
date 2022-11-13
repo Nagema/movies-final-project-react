@@ -8,6 +8,7 @@ import { useSelector } from "react-redux";
 
 const Navbar = () => {
   const { user, token } = useSelector((state) => state.auth);
+  // console.log(user);
   return (
     <nav className="navbar-container">
       <NavLink activeclassname={"active"} to="/">
@@ -26,7 +27,7 @@ const Navbar = () => {
             <NavLink activeclassname={"active"} to="/favorites">
               Favorites
             </NavLink>
-            <Logout />
+            <Logout user={user} />
           </>
         )}
         {!user && (
