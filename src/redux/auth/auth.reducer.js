@@ -53,6 +53,18 @@ const authReducer = (state = INITIAL_STATE, action) => {
     case "checkSession_error":
       return { ...INITIAL_STATE };
 
+    case "modifyUser_start":
+      return { ...state, isLoading: true };
+    case "modifyUser_ok":
+      return {
+        ...state,
+        isLoading: false,
+        user: action.payload,
+        error: false,
+      };
+    case "modifyUser_error":
+      return { ...INITIAL_STATE };
+
     default:
       return state;
   }

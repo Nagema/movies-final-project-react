@@ -4,7 +4,6 @@ import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
 import { useDispatch, useSelector } from "react-redux";
-import { API } from "../../shared/services/api";
 import { modifyUser } from "../../redux/auth/auth.actions";
 
 const MovieCard = (movie) => {
@@ -23,8 +22,7 @@ const MovieCard = (movie) => {
       favorites: [...favoriteMovies],
     };
     data = JSON.stringify(data);
-    await API.put(`/users/edit/${user._id}`, data);
-    dispatch(modifyUser(user));
+    dispatch(modifyUser(user, data));
   };
 
   const favClassName = `${fav ? "favorite-icon-active" : "favorite-icon"}`;

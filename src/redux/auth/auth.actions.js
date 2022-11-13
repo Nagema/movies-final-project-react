@@ -53,16 +53,14 @@ export const checkSession = (token, navigate) => async (dispatch) => {
   }
 };
 
-//testing
-export const modifyUser = (user) => async (dispatch) => {
-  dispatch({ type: "checkSession_start" });
+export const modifyUser = (user, data) => async (dispatch) => {
+  dispatch({ type: "modifyUser_start" });
   try {
+    await API.put(`/users/edit/${user._id}`, data);
     const result = await API.get(`/users/${user._id}`);
     dispatch({
-      type: "checkSession_ok",
-      payload: {
-        user: result.data,
-      },
+      type: "modifyUser_ok",
+      payload: result.data,
     });
   } catch (error) {
     console.error(error);
