@@ -12,18 +12,18 @@ const Favorites = () => {
         `https://movies-api-ll3t.vercel.app/users/`
       );
       const filteredUser = data.filter((userData) => userData._id === user._id);
-      setUser(filteredUser);
+      setUser(filteredUser[0].favorites);
     };
     fetchUsers();
   }, []);
-
   return (
     <div>
       {users.map((user) => {
+        console.log();
         return (
           <div key={user._id}>
-            <p>{user.favorites[0].title}</p>
-            <img src={user.favorites[0].img} alt={user.favorites[0].title} />
+            <p>{user.title}</p>
+            <img src={user.img} alt={user.title} />
           </div>
         );
       })}
