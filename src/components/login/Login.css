@@ -1,7 +1,6 @@
 .login-container {
   padding: 1em;
   max-width: 300px;
-  height: 374px;
   text-align: center;
   border-radius: 20px;
   box-shadow: 0 11px 17px 5px rgba(128, 121, 121, 0.33);
@@ -13,14 +12,11 @@
   padding: 10px;
 }
 
-.login label {
-  font-size: 14px;
-}
 .login {
   min-height: 300px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
 }
 
@@ -36,6 +32,7 @@
   margin: 5px;
   padding: 10px;
   border-radius: 10px;
+  border: none;
   background-color: rgb(255, 255, 255);
 }
 .login-container button {
@@ -52,4 +49,17 @@
   border: solid 1px lightseagreen;
   background-color: lightseagreen;
   color: #ffff;
+}
+.go-to-register-button {
+  text-align: center;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.go-to-register-button p {
+  padding: 10px;
+}
+.go-to-register-button button {
+  margin: 10px;
 }

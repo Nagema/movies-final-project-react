@@ -1,7 +1,6 @@
 .register-container {
   padding: 1em;
   max-width: 300px;
-  height: 374px;
   text-align: center;
   border-radius: 20px;
   background-color: rgba(240, 239, 239, 0.897);
@@ -20,7 +19,7 @@
   min-height: 300px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
 }
 
@@ -32,7 +31,7 @@
 
 .register-container input {
   background: none;
-  border: solid 1px rgb(197, 200, 202);
+  border: none;
   margin: 5px;
   padding: 10px;
   background-color: rgb(255, 255, 255);
@@ -52,4 +51,17 @@
   border: solid 1px lightseagreen;
   background-color: lightseagreen;
   color: #ffff;
+}
+.go-to-login-button {
+  text-align: center;
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.go-to-login-button p {
+  padding: 10px;
+}
+.go-to-login-button button {
+  margin: 5px;
 }

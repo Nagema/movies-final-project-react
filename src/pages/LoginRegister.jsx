@@ -6,7 +6,6 @@ import Register from "../components/register/Register";
 const LoginRegister = () => {
   return (
     <div className="login-register-container">
-      <Register />
       <Login />
     </div>
   );
