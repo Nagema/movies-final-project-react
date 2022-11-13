@@ -7,18 +7,19 @@
 }
 
 .loader-wrapper {
-  margin-top: 40%;
+  margin-top: 100px;
 }
 .loader {
   width: 48px;
   height: 48px;
   background: #fff;
   border-radius: 50%;
-  border: solid 1px grey;
+  border: solid 0.5px grey;
   display: inline-block;
   position: relative;
   box-sizing: border-box;
   animation: rotation 1s linear infinite;
+  box-shadow: 0 11px 50px 5px rgba(109, 106, 106, 0.33);
 }
 .loader::after {
   content: "";
