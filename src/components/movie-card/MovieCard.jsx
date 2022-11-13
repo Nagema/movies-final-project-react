@@ -11,12 +11,11 @@ const MovieCard = (movie) => {
   const navigate = useNavigate();
   const [fav, setFav] = useState(false);
   const dispatch = useDispatch();
-  const { user, token } = useSelector((state) => state.auth);
+  const { user } = useSelector((state) => state.auth);
 
   const favoriteToggle = async (favValue, movie) => {
     setFav(!favValue);
-    console.log(movie.info);
-    console.log(user);
+    console.log(fav);
 
     const favoriteMovies = [...user.favorites];
     favoriteMovies.push(movie.movie._id);
@@ -24,9 +23,8 @@ const MovieCard = (movie) => {
       favorites: [...favoriteMovies],
     };
     data = JSON.stringify(data);
-    console.log(data);
     await API.put(`/users/edit/${user._id}`, data);
-    dispatch(modifyUser());
+    dispatch(modifyUser(user));
   };
 
   const favClassName = `${fav ? "favorite-icon-active" : "favorite-icon"}`;
