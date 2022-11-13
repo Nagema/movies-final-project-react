@@ -2,6 +2,7 @@
   display: flex;
   justify-content: space-between;
   text-align: center;
+  padding: 0 20px;
 }
 
 .logo-wrapper {
@@ -10,7 +11,7 @@
 }
 
 .navbar-container a {
-  padding: 1em;
+  padding: 0.5em;
   color: rgb(83, 80, 80);
 }
 
@@ -21,8 +22,9 @@
 
 .menu-wrapper {
   display: flex;
+  flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: flex-end;
 }
 
 .userName-wrapper {
@@ -32,8 +34,18 @@
 }
 
 @media (min-width: 600px) {
+  .navbar-container a {
+    padding: 1em;
+    color: rgb(83, 80, 80);
+  }
   .navbar-container {
     max-width: 85%;
     margin: auto;
+  }
+  .menu-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
   }
 }

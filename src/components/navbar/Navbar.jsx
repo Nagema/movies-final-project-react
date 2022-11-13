@@ -8,7 +8,6 @@ import { useSelector } from "react-redux";
 
 const Navbar = () => {
   const { user, token } = useSelector((state) => state.auth);
-  // console.log(user);
   return (
     <nav>
       {user && (
