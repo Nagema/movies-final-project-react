@@ -1,8 +1,10 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "./MovieList.css";
 import { useDispatch, useSelector } from "react-redux";
 import { getMovies } from "../../redux/movies/movies.functions";
 import { useNavigate } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faHeart } from "@fortawesome/free-solid-svg-icons";
 
 const MovieList = () => {
   const navigate = useNavigate();
@@ -13,6 +15,12 @@ const MovieList = () => {
     dispatch(getMovies());
   }, []);
 
+  const [fav, setFav] = useState();
+
+  const favoriteToggle = () => {
+    setFav(!fav);
+  };
+
   return (
     <div className="movies-container">
       {isLoading ? (
@@ -22,14 +30,19 @@ const MovieList = () => {
       ) : (
         movies.map((movie) => {
           return (
-            <div onClick={() => navigate(`/movies/${movie._id}`)} className="movie-card" key={movie._id}>
-              <h2>{movie.title}</h2>
-              <img
-                className={movie.title}
-                referrerPolicy="no-referrer"
-                src={movie.img}
-                alt={movie.title}
-              />
+            <div className="movie-card" key={movie._id}>
+              <div onClick={() => navigate(`/movies/${movie._id}`)}>
+                <h2>{movie.title}</h2>
+                <img
+                  className={movie.title}
+                  referrerPolicy="no-referrer"
+                  src={movie.img}
+                  alt={movie.title}
+                />
+              </div>
+              <button className="favorite-icon" onClick={favoriteToggle}>
+                <FontAwesomeIcon icon={faHeart} />
+              </button>
             </div>
           );
         })
