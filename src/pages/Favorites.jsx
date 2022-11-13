@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-
+import "./Favorites.css";
 import axios from "axios";
 import MovieCard from "../components/movie-card/MovieCard";
 
@@ -20,10 +20,16 @@ const Favorites = () => {
   }, []);
   return (
     <div>
-      {favList.map((movie) => {
-        console.log();
-        return <MovieCard key={movie._id} movie={movie} />;
-      })}
+      {favList ? (
+        favList.map((movie) => {
+          console.log();
+          return <MovieCard key={movie._id} movie={movie} />;
+        })
+      ) : (
+        <p className="no-favorites-message">
+          ¯\_(ツ)_/¯ Looks like you don't have favorites yet
+        </p>
+      )}
     </div>
   );
 };
