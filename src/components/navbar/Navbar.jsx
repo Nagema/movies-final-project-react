@@ -1,7 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faFilm } from "@fortawesome/free-solid-svg-icons";
+import { faFilm, faUser } from "@fortawesome/free-solid-svg-icons";
 import "./Navbar.css";
 import Logout from "../logout/Logout";
 import { useSelector } from "react-redux";
@@ -10,7 +10,14 @@ const Navbar = () => {
   const { user, token } = useSelector((state) => state.auth);
   // console.log(user);
   return (
-    <nav className="navbar-container">
+    <nav>
+      {user &&(
+          <div className="userName-wrapper">
+            <p>Welcome {user.userName} <FontAwesomeIcon icon={faUser} /></p>
+            
+          </div>
+        )}
+      <div className="navbar-container">
       <NavLink activeclassname={"active"} to="/">
         <div className="logo-wrapper">
           <FontAwesomeIcon icon={faFilm} />
@@ -27,7 +34,7 @@ const Navbar = () => {
             <NavLink activeclassname={"active"} to="/favorites">
               Favorites
             </NavLink>
-            <Logout user={user} />
+            <Logout user={user} className='button'/>
           </>
         )}
         {!user && (
@@ -35,6 +42,7 @@ const Navbar = () => {
             Login
           </NavLink>
         )}
+      </div>
       </div>
     </nav>
   );

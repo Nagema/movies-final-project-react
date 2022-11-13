@@ -4,20 +4,17 @@ import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { logoutUser } from "../../redux/auth/auth.actions";
 
-const Logout = (user) => {
+const Logout = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const logOutButton = () => {
     dispatch(logoutUser(navigate));
   };
   return (
-    <div>
+    <div className="logout-container">
       <button className="logout-button" onClick={logOutButton}>
         Logout
       </button>
-      <div>
-        <p>Welcome {user.user.userName}</p>
-      </div>
     </div>
   );
 };

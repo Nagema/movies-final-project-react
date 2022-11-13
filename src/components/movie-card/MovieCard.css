@@ -1,6 +1,7 @@
 .movie-card {
   text-align: center;
   width: 300px;
+  
 }
 
 .movie-card h2 {
@@ -10,15 +11,18 @@
 
 img {
   width: 200px;
+  cursor: pointer;
 }
 
 .favorite-icon {
   color: rgb(97, 96, 96);
   background: none;
   border: none;
+  cursor: pointer;
 }
 .favorite-icon-active {
   background: none;
   border: none;
   color: red;
+  cursor: pointer;
 }
