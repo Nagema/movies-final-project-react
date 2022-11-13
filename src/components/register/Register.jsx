@@ -1,4 +1,5 @@
 import React from "react";
+import "./Register.css";
 import { useForm } from "react-hook-form";
 import { newUser } from "../../redux/auth/auth.actions";
 import { useDispatch } from "react-redux";
@@ -16,36 +17,36 @@ const Register = () => {
     dispatch(newUser(formData, navigate));
   };
   return (
-    <div>
+    <div className="register-container">
       <form onSubmit={handleSubmit(sendRegister)} className="register">
         <h2>Register</h2>
-        <label>
-          Email
-          <input
-            type="email"
-            placeholder="Enter user emale"
-            {...register("email")}
-            name="email"
-          ></input>
-        </label>
-        <label>
-          Password
-          <input
-            type="password"
-            placeholder="Enter password"
-            {...register("password")}
-            name="password"
-          ></input>
-        </label>
-        <label>
-          User name
+        <div>
+          <label>User name</label>
           <input
             type="text"
-            placeholder="Enter user name"
+            placeholder="User name"
             {...register("userName")}
             name="userName"
-          ></input>
-        </label>
+          />
+        </div>
+        <div>
+          <label>Email</label>
+          <input
+            type="email"
+            placeholder="User email"
+            {...register("email")}
+            name="email"
+          />
+        </div>
+        <div>
+          <label>Password</label>
+          <input
+            type="password"
+            placeholder="Password"
+            {...register("password")}
+            name="password"
+          />
+        </div>
         <button>Register</button>
       </form>
     </div>

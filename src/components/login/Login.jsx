@@ -17,12 +17,13 @@ const Login = () => {
     dispatch(loginUser(formData, navigate));
   };
   return (
-    <div>
+    <div className="login-container">
       <form onSubmit={handleSubmit(send)} className="login">
         <h2>Login</h2>
-        <label>
-          Email
+        <div>
+          <label>Email</label>
           <input
+            placeholder="Email"
             type="email"
             name="email"
             {...register("email", {
@@ -37,10 +38,11 @@ const Login = () => {
               },
             })}
           />
-        </label>
-        <label>
-          Password
+        </div>
+        <div>
+          <label>Password</label>
           <input
+            placeholder="Password"
             type="password"
             name="password"
             {...register("password", {
@@ -48,7 +50,7 @@ const Login = () => {
               // pattern: /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,12}$/,
             })}
           />
-        </label>
+        </div>
         <button>Login</button>
       </form>
     </div>
