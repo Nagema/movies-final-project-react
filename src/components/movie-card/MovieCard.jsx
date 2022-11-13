@@ -10,11 +10,11 @@ const MovieCard = (movie, handleSubmit) => {
   const [fav, setFav] = useState(false);
   const favoriteToggle = (favValue) => {
     setFav(!favValue);
-    // console.log(fav, !favValue);
+    console.log(fav);
   };
 
   const favClassName = `${fav ? "favorite-icon-active" : "favorite-icon"}`;
-
+  console.log(fav);
 
   return (
     <div className="movie-card">
@@ -30,7 +30,7 @@ const MovieCard = (movie, handleSubmit) => {
       <button
         className={favClassName}
         //onClick={() => handleSubmit(movie.movie)}
-        onClick={() => favoriteToggle()}
+        onClick={() => favoriteToggle(fav)}
       >
         <FontAwesomeIcon icon={faHeart} />
       </button>
