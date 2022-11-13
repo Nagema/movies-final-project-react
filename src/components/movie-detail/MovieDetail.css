@@ -1,0 +1,18 @@
+.movie-detail-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+  padding: 30px;
+}
+.main-info img {
+  width: 300px;
+}
+.movie-detail-container div {
+  padding: 1em;
+}
+.secondary-info {
+  max-width: 50%;
+}
+.secondary-info p {
+  padding: 0.5em;
+}
