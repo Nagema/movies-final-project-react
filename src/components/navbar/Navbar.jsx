@@ -11,38 +11,39 @@ const Navbar = () => {
   // console.log(user);
   return (
     <nav>
-      {user &&(
-          <div className="userName-wrapper">
-            <p>Welcome {user.userName} <FontAwesomeIcon icon={faUser} /></p>
-            
-          </div>
-        )}
-      <div className="navbar-container">
-      <NavLink activeclassname={"active"} to="/">
-        <div className="logo-wrapper">
-          <FontAwesomeIcon icon={faFilm} />
-          <span className="app-title">The cinephile </span>
+      {user && (
+        <div className="userName-wrapper">
+          <p>
+            Welcome {user.userName} <FontAwesomeIcon icon={faUser} />
+          </p>
         </div>
-      </NavLink>
-
-      <div className="menu-wrapper">
+      )}
+      <div className="navbar-container">
         <NavLink activeclassname={"active"} to="/">
-          Home
+          <div className="logo-wrapper">
+            <FontAwesomeIcon icon={faFilm} />
+            <span className="app-title">The cinephile </span>
+          </div>
         </NavLink>
-        {user && (
-          <>
-            <NavLink activeclassname={"active"} to="/favorites">
-              Favorites
-            </NavLink>
-            <Logout user={user} className='button'/>
-          </>
-        )}
-        {!user && (
-          <NavLink activeclassname={"active"} to="/login">
-            Login
+
+        <div className="menu-wrapper">
+          <NavLink activeclassname={"active"} to="/">
+            Home
           </NavLink>
-        )}
-      </div>
+          {user && (
+            <>
+              <NavLink activeclassname={"active"} to="/favorites">
+                Favorites
+              </NavLink>
+              <Logout user={user} className="button" />
+            </>
+          )}
+          {!user && (
+            <NavLink activeclassname={"active"} to="/login">
+              Login
+            </NavLink>
+          )}
+        </div>
       </div>
     </nav>
   );

@@ -3,7 +3,7 @@ const INITIAL_STATE = {
   token: null,
   error: false,
   isLoading: false,
-}
+};
 
 const authReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
@@ -41,14 +41,17 @@ const authReducer = (state = INITIAL_STATE, action) => {
       return { ...state, isLoading: false, error: action.payload };
 
     case "checkSession_start":
-      return {...state, isLoading: true};
+      return { ...state, isLoading: true };
     case "checkSession_ok":
-      return {...state, isLoading: false,
+      return {
+        ...state,
+        isLoading: false,
         user: action.payload.user,
         token: action.payload.token,
-        error: false};
+        error: false,
+      };
     case "checkSession_error":
-      return {...INITIAL_STATE};
+      return { ...INITIAL_STATE };
 
     default:
       return state;

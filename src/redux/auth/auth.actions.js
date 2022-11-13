@@ -27,7 +27,7 @@ export const logoutUser = (navigate) => async (dispatch) => {
 export const newUser = (formdata, navigate) => async (dispatch) => {
   dispatch({ type: "register_user_start" });
   try {
-    const resultado = await API.post("users/register", formdata);
+    const result = await API.post("users/register", formdata);
     dispatch({ type: "register_user_ok" });
     navigate("/login");
   } catch (error) {
@@ -38,10 +38,10 @@ export const newUser = (formdata, navigate) => async (dispatch) => {
 export const checkSession = (token, navigate) => async (dispatch) => {
   dispatch({ type: "checkSession_start" });
   try {
-    const resultado = await API.post("users/checksession");
+    const result = await API.post("users/checksession");
     dispatch({
       type: "checkSession_ok",
-      payload: { user: resultado.data, token: token },
+      payload: { user: result.data, token: token },
     });
     localStorage.setItem("token", token);
     navigate("/");
@@ -51,4 +51,19 @@ export const checkSession = (token, navigate) => async (dispatch) => {
     localStorage.clear();
     navigate("/login");
   }
+};
+
+//testing
+export const modifyUser = (token, user) => async (dispatch) => {
+  dispatch({ type: "checkSession_start" });
+  try {
+    const result = await API.get(`/users/${user._id}`);
+    dispatch({
+      type: "checkSession_ok",
+      payload: {
+        token: token,
+        user: result.data,
+      },
+    });
+  } catch (error) {}
 };

@@ -9,32 +9,9 @@ const MovieList = () => {
   const dispatch = useDispatch();
   const { movies, isLoading, error } = useSelector((state) => state.movies);
 
-  const [data, setData] = useState(null);
-
   useEffect(() => {
     dispatch(getMovies());
   }, []);
-
- 
-
- /*  const handleSubmit = (movie) => {
-    // console.log(movie.info);
-
-    favoriteToggle(movie.info[0].favorites);
-
-    const data = {
-      info: [{ favorites: fav }],
-    };
-    // console.log(data);
-    // console.log(movie);
-    axios
-      .put(`https://movies-api-ll3t.vercel.app/movies/${movie._id}`, data)
-      .then((res) => {
-        setData(res.data);
-      });
-  }; //fix pending */
-
- 
 
   return (
     <div className="movies-container">
@@ -44,12 +21,7 @@ const MovieList = () => {
         </div>
       ) : (
         movies.map((movie) => {
-          return (
-            <MovieCard
-              key={movie._id}
-              movie={movie}
-            />
-          );
+          return <MovieCard key={movie._id} movie={movie} />;
         })
       )}
     </div>
