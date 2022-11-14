@@ -8,22 +8,31 @@ import { modifyUser } from "../../redux/auth/auth.actions";
 
 const MovieCard = (movie) => {
   const navigate = useNavigate();
-  const [fav, setFav] = useState(false);
+  const [fav, setFav] = useState();
   const dispatch = useDispatch();
   const { user } = useSelector((state) => state.auth);
-
+  /* if (favoritesList.includes(movie.movie._id)) {
+    setFav(true)
+  } */
   const favoriteToggle = async (favValue, movie) => {
     setFav(!favValue);
-    // console.log(fav);
-    if (user) {
+    //console.log(fav);
+    console.log(user);
+    console.log(movie);
+    /* if (user.favorites.includes(movie.movie._id)) {
+      console.log("REPETIDO");
+    } */
+    let favoritesList = user?.favorites.map(movieInfo => movieInfo._id)
+    if (user && !favoritesList.includes(movie.movie._id)) {
       const favoriteMovies = [...user.favorites];
       favoriteMovies.push(movie.movie._id);
+      /* setFav(true) */
       let data = {
         favorites: [...favoriteMovies],
       };
       data = JSON.stringify(data);
       dispatch(modifyUser(user, data));
-    } else {
+    } else if (!user){
       navigate("/login");
     }
   };
