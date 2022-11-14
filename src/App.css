@@ -5,6 +5,15 @@
   font-size: 16px;
 }
 
+body {
+  height: 100vh;
+  margin: 0;
+  background: radial-gradient(#ffee75, #ff8930);
+  color: #8b9095;
+  font-size: 14px;
+  font-family: "Roboto", sans-serif;
+}
+
 p,
 h2 {
   color: rgb(96, 96, 96);

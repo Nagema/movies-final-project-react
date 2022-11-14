@@ -12,9 +12,9 @@ const Navbar = () => {
     <nav>
       {user && (
         <div className="userName-wrapper">
-          <p>
+          <NavLink activeclassname={"active"} to="/user">
             Welcome {user.userName} <FontAwesomeIcon icon={faUser} />
-          </p>
+          </NavLink>
         </div>
       )}
       <div className="navbar-container">

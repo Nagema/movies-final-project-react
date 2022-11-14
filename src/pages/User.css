@@ -1,0 +1,39 @@
+.profile-container {
+  padding: 1em;
+  max-width: 300px;
+  text-align: center;
+  border-radius: 50px;
+  box-shadow: 0 11px 17px 5px rgba(128, 121, 121, 0.33);
+  background-color: rgba(240, 239, 239, 0.897);
+  margin: auto;
+  margin-top: 10vh;
+}
+
+.profile-container h2 {
+  margin: 20px;
+}
+.profile-container p {
+  padding: 10px;
+}
+
+.image-profile {
+  border-radius: 50%;
+  width: 210;
+  height: 200px;
+}
+
+.button-upload-remove-save {
+  background: none;
+  border: solid 1px grey;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: gray;
+  color: #ffff;
+  margin: 10px;
+}
+.remove-btn {
+  border: solid 1px rgb(167, 164, 164);
+  background-color: rgb(167, 164, 164);
+  padding: 8px;
+  width: 80px;
+}
