@@ -19,7 +19,7 @@ const Favorites = () => {
     fetchUsers();
   }, []);
   return (
-    <div>
+    <div className="favorite-list">
       {favList ? (
         favList.map((movie) => {
           console.log();
