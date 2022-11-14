@@ -7,9 +7,13 @@ const User = () => {
 
   const { user, token } = useSelector((state) => state.auth);
   const hiddenFileInput = React.useRef(null);
-  const handleClick = (event) => {
+  const handleClick = () => {
     console.log(hiddenFileInput);
     hiddenFileInput.current.click();
+  };
+
+  const saveImage = () => {
+    console.log(selectedImage);
   };
 
   const dfImg =
@@ -37,11 +41,13 @@ const User = () => {
           </>
         )}
 
-        <p>{user?.name}</p>
+        <p>{user?.userName}</p>
         <p>{user?.email}</p>
 
         {selectedImage ? (
-          <button className="button-upload-remove-save">Save image</button>
+          <button className="button-upload-remove-save" onClick={saveImage}>
+            Save image
+          </button>
         ) : (
           <button className="button-upload-remove-save" onClick={handleClick}>
             Upload your image profile
