@@ -12,44 +12,39 @@ const MovieCard = (movie) => {
   const dispatch = useDispatch();
   const { user } = useSelector((state) => state.auth);
 
-
-  // console.log(user?.favorites);
   const userFavorites = user?.favorites;
   useEffect(() => {
-    if(userFavorites) {
+    if (userFavorites) {
       for (let favorite of userFavorites) {
         if (favorite._id === movie.movie._id) {
-          console.log('checkeo el color')
           setFav(true);
-        } else {
-          console.log('f en el chat');
         }
       }
-    }   
-  }, [user])
+    }
+  }, [user]);
 
   const favoriteToggle = async (favValue, movie) => {
     setFav(!favValue);
-    //console.log(fav);
-    console.log(user);
-    console.log('movie',movie);
-    let favoritesList = user?.favorites.map(movieInfo => movieInfo._id)
-    if (user && !favoritesList.includes(movie.movie._id)) {
-      const favoriteMovies = [...user.favorites];
-      favoriteMovies.push(movie.movie._id);
-      /* setFav(true) */
-      let data = {
-        favorites: [...favoriteMovies],
-      };
-      data = JSON.stringify(data);
-      dispatch(modifyUser(user, data));
-    } else if (!user){
+    if (!user) {
       navigate("/login");
+      return;
     }
+
+    const favoriteIds = user?.favorites.map((movieInfo) => movieInfo._id);
+    let favorites = [...user.favorites];
+    const movieId = movie.movie._id;
+
+    if (!favoriteIds.includes(movieId)) {
+      favorites.push(movieId);
+    } else {
+      favorites = favorites.filter((fav) => fav._id !== movieId);
+    }
+    const data = {
+      favorites,
+    };
+    dispatch(modifyUser(user, JSON.stringify(data)));
   };
 
- 
-  
   const favClassName = `${fav ? "favorite-icon-active" : "favorite-icon"}`;
   return (
     <div className="movie-card">
