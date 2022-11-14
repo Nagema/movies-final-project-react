@@ -1,4 +1,6 @@
 .login-register-container {
+  display: flex;
+  flex-direction: column;
   padding: 30px;
   margin: 40px;
   border-radius: 20px;
