@@ -13,17 +13,24 @@ const MovieList = () => {
   }, []);
 
   return (
-    <div className="movies-container">
-      {isLoading ? (
-        <div className="loader-wrapper">
-          <span className="loader"></span>
+    <>
+      {!isLoading && (
+        <div className="search-wrapper">
+          <input type="search" className="input-search" placeholder="Search" />
         </div>
-      ) : (
-        movies.map((movie) => {
-          return <MovieCard key={movie._id} movie={movie} />;
-        })
       )}
-    </div>
+      <div className="movies-container">
+        {isLoading ? (
+          <div className="loader-wrapper">
+            <span className="loader"></span>
+          </div>
+        ) : (
+          movies.map((movie) => {
+            return <MovieCard key={movie._id} movie={movie} />;
+          })
+        )}
+      </div>
+    </>
   );
 };
 

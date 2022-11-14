@@ -1,8 +1,11 @@
 .movie-detail-container {
   display: flex;
-  justify-content: center;
   margin-top: 50px;
   padding: 30px;
+}
+
+.main-info h2 {
+  padding: 10px;
 }
 .main-info img {
   width: 300px;
@@ -12,6 +15,7 @@
 }
 .secondary-info {
   max-width: 50%;
+  padding: 100px 30px;
 }
 .secondary-info p {
   padding: 0.5em;

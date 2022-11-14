@@ -8,9 +8,9 @@ const User = () => {
   const { user, token } = useSelector((state) => state.auth);
   const hiddenFileInput = React.useRef(null);
   const handleClick = (event) => {
+    console.log(hiddenFileInput);
     hiddenFileInput.current.click();
   };
-  console.log(user);
 
   const dfImg =
     "https://www.citypng.com/public/uploads/preview/download-profile-user-round-orange-icon-symbol-png-11639594360ksf6tlhukf.png";
