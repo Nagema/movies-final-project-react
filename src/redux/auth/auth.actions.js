@@ -28,6 +28,7 @@ export const newUser = (formdata, navigate) => async (dispatch) => {
   dispatch({ type: "register_user_start" });
   try {
     const result = await API.post("users/register", formdata);
+    console.log(result);
     dispatch({ type: "register_user_ok" });
     navigate("/login");
   } catch (error) {

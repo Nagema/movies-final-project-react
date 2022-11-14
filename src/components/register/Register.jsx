@@ -16,6 +16,7 @@ const Register = ({ showLogin, setShowLogin }) => {
   const dispatch = useDispatch();
   const sendRegister = async (formData) => {
     dispatch(newUser(formData, navigate));
+    setShowLogin(true);
   };
 
   const goToLogin = () => {
