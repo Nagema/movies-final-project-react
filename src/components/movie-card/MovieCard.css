@@ -4,8 +4,9 @@
   justify-content: center;
   align-items: center;
   position: relative;
-  /* width: 200px;
-  height: 300px; */
+  border-radius: 5px;
+  width: 200px;
+  height: 300px;
 }
 
 .title-container {
@@ -19,6 +20,7 @@
   position: absolute;
   bottom: 0;
   border-radius: 0px 0px 5px 5px;
+  cursor: pointer;
 }
 
 .movie-card h2 {
@@ -52,7 +54,8 @@ img {
 }
 
 .movie-card:hover {
-  box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.16);
+  box-shadow: 0 0px 15px 4px rgba(0, 0, 0, 0.5);
+
 }
 .favorite-icon {
   color: whitesmoke;
@@ -71,7 +74,7 @@ img {
   color: rgb(231, 170, 170);
 }
 .favorite-icon-active {
-  color: red;
+  color: #22A2B3;
   background:  rgb(19, 19, 19, 0.7);
   padding: 10px;
   border: none;

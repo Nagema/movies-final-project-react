@@ -1,3 +1,8 @@
+a {
+  color: rgb(55, 55, 55);
+}
+
+
 .navbar-container {
   display: flex;
   justify-content: space-between;
@@ -7,12 +12,12 @@
 
 .logo-wrapper {
   font-size: 20px;
-  color: rgb(83, 80, 80);
+  color: rgb(55, 55, 55);
 }
 
 .navbar-container a {
   padding: 0.5em;
-  color: rgb(83, 80, 80);
+  color: rgb(55, 55, 55);
 }
 
 .menu-wrapper a:hover {
@@ -20,6 +25,7 @@
   /* color: rgba(80, 48, 80, 0.795); */
   text-shadow: #fc0 1px 0 10px;
 }
+
 
 .app-title {
   font-size: 16px;

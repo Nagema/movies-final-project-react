@@ -1,6 +1,6 @@
 .logout-button {
   padding: 0.5em;
-  color: rgb(83, 80, 80);
+  color: rgb(55, 55, 55);
   background: none;
   border: none;
   cursor: pointer;
@@ -10,4 +10,10 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.logout-button:hover {
+  font-weight: bold;
+  /* color: rgba(80, 48, 80, 0.795); */
+  text-shadow: #4AEAFF 1px 0 10px;
 }
