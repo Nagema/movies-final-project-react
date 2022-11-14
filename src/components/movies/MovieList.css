@@ -6,6 +6,10 @@
   margin: 10% 0;
 }
 
+.movies-container img {
+  max-width: 200px;
+  height: 321px;
+}
 .loader-wrapper {
   margin-top: 100px;
 }

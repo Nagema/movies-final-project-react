@@ -15,6 +15,12 @@
   color: rgb(83, 80, 80);
 }
 
+.menu-wrapper a:hover {
+  font-weight: bold;
+  /* color: rgba(80, 48, 80, 0.795); */
+  text-shadow: #fc0 1px 0 10px;
+}
+
 .app-title {
   font-size: 16px;
   padding: 10px;
