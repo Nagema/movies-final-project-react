@@ -1,48 +1,85 @@
 .movie-card {
-  text-align: center;
-  width: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  /* width: 200px;
+  height: 300px; */
+}
+
+.title-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: rgb(19, 19, 19, 0.7);
+  height: 20%;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  border-radius: 0px 0px 5px 5px;
 }
 
 .movie-card h2 {
-  padding: 10px 50px;
+  color: white;
   font-size: 14px;
   text-transform: capitalize;
-  width: fit-content;
-  margin: auto;
-  display: block;
-  min-height: 65px;
-  display: flex;
-  align-items: center;
+  text-align: center;
+  margin: 0;
+  display: block; 
 }
 
-.movie-card h2:hover {
+/* .movie-card h2:hover {
   font-size: 15px;
   color: rgba(80, 48, 80, 0.795);
   text-shadow: rgb(173, 146, 36) 1px 0 10px;
+} */
+
+.img-container {
+  display: flex;
+  height: 300px;
+  width: 200px;
 }
 
+
 img {
-  width: 200px;
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
   cursor: pointer;
   border-radius: 5px;
 }
 
-img:hover {
+.movie-card:hover {
   box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.16);
 }
 .favorite-icon {
-  color: rgb(97, 96, 96);
-  background: none;
+  color: whitesmoke;
+  background:  rgb(19, 19, 19, 0.7);
+  padding: 10px;
   border: none;
+  border-radius: 5px;
   cursor: pointer;
+  position: absolute;
+  right: 0;
+  top: 0;
+  
 }
 
 .favorite-icon:hover {
   color: rgb(231, 170, 170);
 }
 .favorite-icon-active {
-  background: none;
-  border: none;
   color: red;
+  background:  rgb(19, 19, 19, 0.7);
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
   cursor: pointer;
+  position: absolute;
+  right: 0;
+  top: 0;
+ 
 }
+

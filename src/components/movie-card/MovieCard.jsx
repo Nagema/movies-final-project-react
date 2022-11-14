@@ -48,22 +48,23 @@ const MovieCard = (movie) => {
   const favClassName = `${fav ? "favorite-icon-active" : "favorite-icon"}`;
   return (
     <div className="movie-card">
-      <div onClick={() => navigate(`/movies/${movie.movie._id}`)}>
-        <h2>{movie.movie.title}</h2>
-        <img
-          className={movie.movie.title}
-          referrerPolicy="no-referrer"
-          src={movie.movie.img}
-          alt={movie.movie.title}
-        />
-      </div>
-
       <button
         className={favClassName}
         onClick={() => favoriteToggle(fav, movie)}
       >
         <FontAwesomeIcon icon={faHeart} />
       </button>
+      <div className="title-container">
+        <h2>{movie.movie.title}</h2>
+      </div>
+      <div className="img-container">
+        <img onClick={() => navigate(`/movies/${movie.movie._id}`)}
+          className={movie.movie.title}
+          referrerPolicy="no-referrer"
+          src={movie.movie.img}
+          alt={movie.movie.title}
+        />
+      </div>
     </div>
   );
 };
