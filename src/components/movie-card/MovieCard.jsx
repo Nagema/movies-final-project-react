@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./MovieCard.css";
 import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -11,17 +11,28 @@ const MovieCard = (movie) => {
   const [fav, setFav] = useState();
   const dispatch = useDispatch();
   const { user } = useSelector((state) => state.auth);
-  /* if (favoritesList.includes(movie.movie._id)) {
-    setFav(true)
-  } */
+
+
+  // console.log(user?.favorites);
+  const userFavorites = user?.favorites;
+  useEffect(() => {
+    if(userFavorites) {
+      for (let favorite of userFavorites) {
+        if (favorite._id === movie.movie._id) {
+          console.log('checkeo el color')
+          setFav(true);
+        } else {
+          console.log('f en el chat');
+        }
+      }
+    }   
+  }, [user])
+
   const favoriteToggle = async (favValue, movie) => {
     setFav(!favValue);
     //console.log(fav);
     console.log(user);
-    console.log(movie);
-    /* if (user.favorites.includes(movie.movie._id)) {
-      console.log("REPETIDO");
-    } */
+    console.log('movie',movie);
     let favoritesList = user?.favorites.map(movieInfo => movieInfo._id)
     if (user && !favoritesList.includes(movie.movie._id)) {
       const favoriteMovies = [...user.favorites];
@@ -37,8 +48,9 @@ const MovieCard = (movie) => {
     }
   };
 
+ 
+  
   const favClassName = `${fav ? "favorite-icon-active" : "favorite-icon"}`;
-
   return (
     <div className="movie-card">
       <div onClick={() => navigate(`/movies/${movie.movie._id}`)}>
