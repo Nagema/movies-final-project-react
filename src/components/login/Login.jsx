@@ -25,45 +25,50 @@ const Login = () => {
   return (
     <>
       {showLogin ? (
-        <div className="login-container">
-          <form onSubmit={handleSubmit(send)} className="login">
-            <h2>Login</h2>
-            <div>
-              <input
-                placeholder="Email"
-                type="email"
-                name="email"
-                {...register("email", {
-                  required: "Introduce un email, por favor",
-                  minLength: {
-                    value: 2,
-                    message: "el email tiene que ser mas largo",
-                  },
-                  pattern: {
-                    value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
-                    message: "Introduce un email con formato valido",
-                  },
-                })}
-              />
+        <>
+          <p className="login-message">
+            Welcome cinephile! Log in to select your favorite movies!
+          </p>
+          <div className="login-container">
+            <form onSubmit={handleSubmit(send)} className="login">
+              <h2>Login</h2>
+              <div>
+                <input
+                  placeholder="Email"
+                  type="email"
+                  name="email"
+                  {...register("email", {
+                    required: "Introduce un email, por favor",
+                    minLength: {
+                      value: 2,
+                      message: "el email tiene que ser mas largo",
+                    },
+                    pattern: {
+                      value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
+                      message: "Introduce un email con formato valido",
+                    },
+                  })}
+                />
+              </div>
+              <div>
+                <input
+                  placeholder="Password"
+                  type="password"
+                  name="password"
+                  {...register("password", {
+                    required: "El password tiene que existir",
+                    // pattern: /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,12}$/,
+                  })}
+                />
+              </div>
+              <button>Login</button>
+            </form>
+            <div className="go-to-register-button">
+              <p>You dont have an account?</p>
+              <button onClick={goToRegister}>Register</button>
             </div>
-            <div>
-              <input
-                placeholder="Password"
-                type="password"
-                name="password"
-                {...register("password", {
-                  required: "El password tiene que existir",
-                  // pattern: /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,12}$/,
-                })}
-              />
-            </div>
-            <button>Login</button>
-          </form>
-          <div className="go-to-register-button">
-            <p>You dont have an account?</p>
-            <button onClick={goToRegister}>Register</button>
           </div>
-        </div>
+        </>
       ) : (
         <Register
           showLogin={showLogin}

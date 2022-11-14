@@ -14,15 +14,18 @@ const MovieCard = (movie) => {
 
   const favoriteToggle = async (favValue, movie) => {
     setFav(!favValue);
-    console.log(fav);
-
-    const favoriteMovies = [...user.favorites];
-    favoriteMovies.push(movie.movie._id);
-    let data = {
-      favorites: [...favoriteMovies],
-    };
-    data = JSON.stringify(data);
-    dispatch(modifyUser(user, data));
+    // console.log(fav);
+    if (user) {
+      const favoriteMovies = [...user.favorites];
+      favoriteMovies.push(movie.movie._id);
+      let data = {
+        favorites: [...favoriteMovies],
+      };
+      data = JSON.stringify(data);
+      dispatch(modifyUser(user, data));
+    } else {
+      navigate("/login");
+    }
   };
 
   const favClassName = `${fav ? "favorite-icon-active" : "favorite-icon"}`;
@@ -38,6 +41,7 @@ const MovieCard = (movie) => {
           alt={movie.movie.title}
         />
       </div>
+
       <button
         className={favClassName}
         onClick={() => favoriteToggle(fav, movie)}

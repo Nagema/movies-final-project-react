@@ -63,3 +63,8 @@
 .go-to-register-button button {
   margin: 10px;
 }
+.login-message {
+  padding: 20px 0;
+  font-size: 20px;
+  text-align: center;
+}
