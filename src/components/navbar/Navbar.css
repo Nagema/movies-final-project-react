@@ -6,7 +6,7 @@ a {
   display: flex;
   justify-content: space-between;
   text-align: center;
-  padding: 0 20px;
+  padding: 10px;
 }
 
 .logo-wrapper {
@@ -21,7 +21,6 @@ a {
 
 .menu-wrapper a:hover {
   font-weight: bold;
-  /* color: rgba(80, 48, 80, 0.795); */
   text-shadow: #fc0 1px 0 10px;
 }
 
@@ -51,9 +50,11 @@ a {
 }
 .toggle-button-menu {
   width: 1.5em;
+  cursor: pointer;
 }
 .toggle-button-close {
   width: 1.2em;
+  cursor: pointer;
 }
 
 @media (min-width: 600px) {
