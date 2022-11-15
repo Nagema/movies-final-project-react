@@ -2,7 +2,6 @@ a {
   color: rgb(55, 55, 55);
 }
 
-
 .navbar-container {
   display: flex;
   justify-content: space-between;
@@ -26,7 +25,6 @@ a {
   text-shadow: #fc0 1px 0 10px;
 }
 
-
 .app-title {
   font-size: 16px;
   padding: 10px;
@@ -43,6 +41,19 @@ a {
   padding: 10px 20px;
   display: flex;
   justify-content: flex-end;
+}
+
+.toggle-button {
+  visibility: visible;
+  background-color: transparent;
+  border: none;
+  text-align: end;
+}
+.toggle-button-menu {
+  width: 1.5em;
+}
+.toggle-button-close {
+  width: 1.2em;
 }
 
 @media (min-width: 600px) {

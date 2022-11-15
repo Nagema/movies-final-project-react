@@ -58,8 +58,9 @@ const MovieCard = (movie) => {
         <h2>{movie.movie.title}</h2>
       </div>
       <div className="img-container">
-        <img onClick={() => navigate(`/movies/${movie.movie._id}`)}
-          className={movie.movie.title}
+        <img
+          onClick={() => navigate(`/movies/${movie.movie._id}`)}
+          className="movie-card-image"
           referrerPolicy="no-referrer"
           src={movie.movie.img}
           alt={movie.movie.title}

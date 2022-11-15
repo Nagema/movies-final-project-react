@@ -20,10 +20,11 @@ const Favorites = () => {
   }, []);
   return (
     <div className="favorite-list">
-      
-      {favList ? (
+      {favList.length ? (
         favList.map((movie) => {
-          return <MovieCard className='movie-card' key={movie._id} movie={movie} />;
+          return (
+            <MovieCard className="movie-card" key={movie._id} movie={movie} />
+          );
         })
       ) : (
         <p className="no-favorites-message">
