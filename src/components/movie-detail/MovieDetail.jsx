@@ -15,7 +15,6 @@ const MovieDetail = () => {
     };
     fetchMovie();
   }, []);
-  console.log();
   return (
     <div className="movie-detail-container">
       <div className="main-info">

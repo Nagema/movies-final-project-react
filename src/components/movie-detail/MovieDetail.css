@@ -1,24 +1,32 @@
 .movie-detail-container {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: 50px;
-  padding: 30px;
 }
 
 .main-info h2 {
   padding: 10px;
 }
 .main-info img {
-  width: 300px;
+  width: 200px;
 }
 .movie-detail-container div {
   padding: 1em;
 }
-.secondary-info {
-  max-width: 30%;
-  padding: 100px 30px;
-}
 .secondary-info p {
   padding: 0.5em;
+}
+
+@media (min-width: 600px) {
+  .main-info img {
+    width: 300px;
+  }
+  .movie-detail-container {
+    padding: 0 30px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
 }
